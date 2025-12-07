@@ -1,0 +1,30 @@
+import execute from "@directive/execute";
+import { describe, expect, it, vi } from "vitest";
+import adopted from "./adopted";
+
+vi.mock("@directive/execute", () => {
+  return {
+    default: vi.fn(() => ({
+      on: vi.fn(() => ({ after: vi.fn() })),
+    })),
+  };
+});
+
+describe("adopted", () => {
+  it("should correctly chain execute -> on -> after", () => {
+    const afterMock = vi.fn();
+    const onMock = vi.fn(() => ({ after: afterMock }));
+    const executeMock = vi.fn(() => ({ on: onMock }));
+
+    execute.mockImplementation(executeMock);
+
+    class MyElement {
+      @adopted
+      onAdopted() {}
+    }
+
+    expect(executeMock).toHaveBeenCalledWith("onAdopted");
+    expect(onMock).toHaveBeenCalledWith(MyElement.prototype);
+    expect(afterMock).toHaveBeenCalledWith("adoptedCallback");
+  });
+});

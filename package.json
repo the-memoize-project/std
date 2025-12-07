@@ -1,0 +1,105 @@
+{
+  "name": "@hive/std",
+  "version": "0.18.5",
+  "description": "Build complete web applications using declarative Web Components. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture.",
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "shadow-dom",
+    "decorators",
+    "reactive",
+    "framework",
+    "typescript",
+    "javascript",
+    "frontend",
+    "ui",
+    "components",
+    "hive",
+    "declarative",
+    "zero-dependencies",
+    "lightweight"
+  ],
+  "author": "Hive Contributors",
+  "license": "MIT",
+  "homepage": "https://github.com/hivejs/std#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hivejs/std.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hivejs/std/issues"
+  },
+  "type": "module",
+  "main": "dist/std.cjs",
+  "module": "dist/std.js",
+  "types": "types.d.ts",
+  "source": "src/index.js",
+  "exports": {
+    "./directive": {
+      "types": "./packages/directive/types.d.ts",
+      "import": "./dist/directive.js",
+      "require": "./dist/directive.cjs"
+    },
+    "./dom": {
+      "types": "./packages/dom/types.d.ts",
+      "import": "./dist/dom.js",
+      "require": "./dist/dom.cjs"
+    },
+    "./echo": {
+      "types": "./packages/echo/types.d.ts",
+      "import": "./dist/echo.js",
+      "require": "./dist/echo.cjs"
+    },
+    "./event": {
+      "types": "./packages/event/types.d.ts",
+      "import": "./dist/event.js",
+      "require": "./dist/event.cjs"
+    },
+    "./spark": {
+      "types": "./packages/spark/types.d.ts",
+      "import": "./dist/spark.js",
+      "require": "./dist/spark.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "packages",
+    "types.d.ts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "build:watch": "vite build --watch",
+    "dev": "vite",
+    "test": "vitest --coverage",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build && npm run test",
+    "prepare": "husky",
+    "release": "npm run build && npm run test && npm publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@happy-dom/global-registrator": "^20.0.11",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@vitest/coverage-v8": "4.0.15",
+    "happy-dom": "^20.0.11",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.6",
+    "vitest": "^4.0.15"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

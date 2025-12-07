@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+
+    // Modules
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+
+    // Emit
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    // JavaScript Support
+    "allowJs": true,
+    "checkJs": true,
+    "maxNodeModuleJsDepth": 1,
+
+    // Interop
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    // Language and Environment
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+
+    // Projects
+    "composite": false,
+    "incremental": true,
+
+    // Completeness
+    "skipLibCheck": true,
+
+    // Paths
+    "baseUrl": ".",
+    "paths": {
+      "@directive": ["./packages/directive"],
+      "@directive/*": ["./packages/directive/*"],
+      "@dom": ["./packages/dom"],
+      "@dom/*": ["./packages/dom/*"],
+      "@echo": ["./packages/echo"],
+      "@echo/*": ["./packages/echo/*"],
+      "@event": ["./packages/event"],
+      "@event/*": ["./packages/event/*"],
+      "@polyfill": ["./packages/polyfill"],
+      "@polyfill/*": ["./packages/polyfill/*"],
+      "@spark": ["./packages/spark"],
+      "@spark/*": ["./packages/spark/*"]
+    }
+  },
+  "include": [
+    "packages/**/*",
+    "types.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "**/*.spec.js",
+    "**/*.spec.ts"
+  ]
+}
