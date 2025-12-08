@@ -1,5 +1,5 @@
 {
-  "name": "@hive/std",
+  "name": "@hivewc/std",
   "version": "0.0.1",
   "description": "Build complete web applications using declarative Web Components. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture.",
   "keywords": [
@@ -74,7 +74,6 @@
     "build": "vite build",
     "dev": "vite",
     "test": "vitest --coverage",
-    "lint": "biome check --write packages/**/*.{js,ts}",
     "prepare": "husky"
   },
   "devDependencies": {
