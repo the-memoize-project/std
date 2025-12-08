@@ -1,6 +1,6 @@
 {
   "name": "@hive/std",
-  "version": "0.18.5",
+  "version": "0.18.6",
   "description": "Build complete web applications using declarative Web Components. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture.",
   "keywords": [
     "web-components",
@@ -72,18 +72,10 @@
   ],
   "scripts": {
     "build": "vite build",
-    "build:watch": "vite build --watch",
     "dev": "vite",
     "test": "vitest --coverage",
-    "test:watch": "vitest --watch",
-    "test:ui": "vitest --ui",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "format": "biome format --write .",
-    "typecheck": "tsc --noEmit",
-    "prepack": "npm run build && npm run test",
-    "prepare": "husky",
-    "release": "npm run build && npm run test && npm publish"
+    "lint": "biome check --write packages/**/*.{js,ts}",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.8",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
   "formatter": {
     "enabled": true,
     "indentStyle": "space"
@@ -14,17 +14,11 @@
         "noDelete": "off"
       },
       "recommended": true,
-      "style": {
-        "noCommaOperator": "off"
-      },
       "suspicious": {
         "noExplicitAny": "off",
         "noAssignInExpressions": "off",
         "noDuplicateTestHooks": "off"
       }
     }
-  },
-  "organizeImports": {
-    "enabled": true
   }
 }

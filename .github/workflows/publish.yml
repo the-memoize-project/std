@@ -1,9 +1,9 @@
-name: Publish to NPM
+name: 🚀 Publish Package to NPM
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -33,11 +33,4 @@ jobs:
       - name: Publish to NPM
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}

@@ -6,5 +6,6 @@
  * @returns {boolean} `true` if `x == y`, otherwise `false`.
  */
 export function equals(x, y) {
+  // biome-ignore lint/suspicious/noDoubleEquals: intentional type coercion comparison
   return x == y;
 }
