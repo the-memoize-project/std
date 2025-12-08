@@ -1,6 +1,6 @@
 {
   "name": "@hive/std",
-  "version": "0.18.6",
+  "version": "0.0.1",
   "description": "Build complete web applications using declarative Web Components. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture.",
   "keywords": [
     "web-components",
@@ -21,13 +21,13 @@
   ],
   "author": "Hive Contributors",
   "license": "MIT",
-  "homepage": "https://github.com/hivejs/std#readme",
+  "homepage": "https://github.com/hivewc/std#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hivejs/std.git"
+    "url": "git+https://github.com/hivewc/std.git"
   },
   "bugs": {
-    "url": "https://github.com/hivejs/std/issues"
+    "url": "https://github.com/hivewc/std/issues"
   },
   "type": "module",
   "main": "dist/std.cjs",
