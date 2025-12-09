@@ -1,7 +1,7 @@
 {
-  "name": "@hivewc/std",
+  "name": "@the-memoize-project/std",
   "version": "0.0.1",
-  "description": "Build complete web applications using declarative Web Components. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture.",
+  "description": "Memoize Components: Build declarative Web Components for The Memoize Project. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture. Part of a flashcard application using FSRS spaced repetition.",
   "keywords": [
     "web-components",
     "custom-elements",
@@ -14,20 +14,25 @@
     "frontend",
     "ui",
     "components",
-    "hive",
+    "memoize",
+    "memoize-components",
+    "flashcards",
+    "fsrs",
+    "spaced-repetition",
+    "anki",
     "declarative",
     "zero-dependencies",
     "lightweight"
   ],
-  "author": "Hive Contributors",
+  "author": "The Memoize Project Contributors",
   "license": "MIT",
-  "homepage": "https://github.com/hivewc/std#readme",
+  "homepage": "https://github.com/the-memoize-project/std#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hivewc/std.git"
+    "url": "git+https://github.com/the-memoize-project/std.git"
   },
   "bugs": {
-    "url": "https://github.com/hivewc/std/issues"
+    "url": "https://github.com/the-memoize-project/std/issues"
   },
   "type": "module",
   "main": "dist/std.cjs",

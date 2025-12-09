@@ -1,15 +1,17 @@
 <div align="center">
 
-# 🐝 Hive Standard Library
+# 🧠 Memoize Components
 
-**Build complete web applications using declarative Web Components. No imperative JavaScript required.**
+**Build declarative Web Components for The Memoize Project. Zero dependencies, fully reactive.**
 
-[![npm version](https://img.shields.io/npm/v/@hive/std.svg?style=flat-square)](https://www.npmjs.com/package/@hive/std)
-[![npm downloads](https://img.shields.io/npm/dm/@hive/std.svg?style=flat-square)](https://www.npmjs.com/package/@hive/std)
+Part of [**The Memoize Project**](https://github.com/the-memoize-project) — A modern flashcard application with FSRS spaced repetition
+
+[![npm version](https://img.shields.io/npm/v/@the-memoize-project/std.svg?style=flat-square)](https://www.npmjs.com/package/@the-memoize-project/std)
+[![npm downloads](https://img.shields.io/npm/dm/@the-memoize-project/std.svg?style=flat-square)](https://www.npmjs.com/package/@the-memoize-project/std)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@hive/std?style=flat-square&label=minzip)](https://bundlephobia.com/package/@hive/std)
-[![CI Status](https://img.shields.io/github/actions/workflow/status/hivejs/std/publish.yml?branch=main&style=flat-square&label=CI)](https://github.com/hivejs/std/actions)
-[![Coverage](https://img.shields.io/badge/coverage-97.5%25-brightgreen.svg?style=flat-square)](https://github.com/hivejs/std)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@the-memoize-project/std?style=flat-square&label=minzip)](https://bundlephobia.com/package/@the-memoize-project/std)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/the-memoize-project/std/publish.yml?branch=main&style=flat-square&label=CI)](https://github.com/the-memoize-project/std/actions)
+[![Coverage](https://img.shields.io/badge/coverage-97.5%25-brightgreen.svg?style=flat-square)](https://github.com/the-memoize-project/std)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
@@ -19,9 +21,33 @@
 
 ---
 
-## 🌟 What is Hive?
+## 📚 About The Memoize Project
 
-**Hive** is a revolutionary framework that enables you to build complete, reactive web applications using nothing but native Web Components and declarative syntax. Just like a beehive, where simple autonomous cells work together to create complex emergent behavior, Hive components communicate through a central message bus to build sophisticated applications.
+**The Memoize Project** is a modern, personal flashcard application designed for effective learning through spaced repetition. Born from a comprehensive architectural refactoring, the project embraces a **micro-repository architecture** where each context is independently maintained and versioned.
+
+### 🎯 Project Context
+
+- **Mission**: Building a powerful flashcard application with cutting-edge spaced repetition algorithms
+- **Evolution**: Migrating from Anki's SM-2 algorithm to the more sophisticated **FSRS (Free Spaced Repetition Scheduler)**
+- **Architecture**: Modern micro-repo structure with independent, focused modules
+- **Organization**: [github.com/the-memoize-project](https://github.com/the-memoize-project)
+
+### 🧩 Repository Purpose
+
+This repository (`std`) provides the **Web Components framework** that powers the Memoize application's user interface. It's designed to be:
+
+- **Lightweight**: Zero dependencies, minimal footprint
+- **Declarative**: Build complex UIs without imperative code
+- **Reactive**: Automatic updates and state management
+- **Modular**: Tree-shakeable packages for optimal bundle size
+
+While originally inspired by the Hive framework philosophy, this library has been integrated into The Memoize Project ecosystem to provide a solid foundation for building flashcard interfaces, study sessions, statistics dashboards, and all interactive components of the application.
+
+---
+
+## 🌟 What is Memoize Components?
+
+**Memoize Components** is a revolutionary framework that enables you to build complete, reactive web applications using nothing but native Web Components and declarative syntax. Components communicate through a central message bus to build sophisticated applications with minimal boilerplate and maximum clarity.
 
 ### ✨ Key Features
 
@@ -42,16 +68,16 @@
 
 ```bash
 # npm
-npm install @hive/std
+npm install @the-memoize-project/std
 
 # yarn
-yarn add @hive/std
+yarn add @the-memoize-project/std
 
 # bun
-bun add @hive/std
+bun add @the-memoize-project/std
 
 # pnpm
-pnpm add @hive/std
+pnpm add @the-memoize-project/std
 ```
 
 ### Your First Component
@@ -59,11 +85,11 @@ pnpm add @hive/std
 Create a reactive counter in just a few lines:
 
 ```javascript
-import { define, attributeChanged } from "@hive/std/directive";
-import { paint, repaint, html, css } from "@hive/std/dom";
-import { event } from "@hive/std/event";
+import { define, attributeChanged } from "@the-memoize-project/std/directive";
+import { paint, repaint, html, css } from "@the-memoize-project/std/dom";
+import { event } from "@the-memoize-project/std/event";
 
-@define("hive-counter")
+@define("memoize-counter")
 @paint(template, styles)
 class Counter extends HTMLElement {
   #count = 0;
@@ -133,7 +159,7 @@ function styles(counter) {
 Now use it anywhere:
 
 ```html
-<hive-counter count="0"></hive-counter>
+<memoize-counter count="0"></memoize-counter>
 ```
 
 ### 🌐 CDN Usage
@@ -141,18 +167,18 @@ Now use it anywhere:
 Perfect for prototyping or learning:
 
 ```javascript
-import { define } from "https://esm.sh/@hive/std/directive";
-import { paint, html, css } from "https://esm.sh/@hive/std/dom";
-import { event } from "https://esm.sh/@hive/std/event";
+import { define } from "https://esm.sh/@the-memoize-project/std/directive";
+import { paint, html, css } from "https://esm.sh/@the-memoize-project/std/dom";
+import { event } from "https://esm.sh/@the-memoize-project/std/event";
 ```
 
 ---
 
 ## 📦 Packages
 
-Hive is organized into six independent, tree-shakeable packages. Import only what you need:
+Memoize Components is organized into six independent, tree-shakeable packages. Import only what you need:
 
-### 🎯 [@hive/std/directive](packages/directive)
+### 🎯 [@the-memoize-project/std/directive](packages/directive)
 
 Lifecycle and attribute decorators for Custom Elements.
 
@@ -163,7 +189,7 @@ import {
   disconnected,     // disconnectedCallback
   adopted,          // adoptedCallback
   attributeChanged  // attributeChangedCallback
-} from "@hive/std/directive";
+} from "@the-memoize-project/std/directive";
 ```
 
 **Features:**
@@ -176,7 +202,7 @@ import {
 
 ---
 
-### 🎨 [@hive/std/dom](packages/dom)
+### 🎨 [@the-memoize-project/std/dom](packages/dom)
 
 Rendering and styling decorators with reactive capabilities.
 
@@ -187,7 +213,7 @@ import {
   retouch,   // Style-only re-render
   html,      // HTML template tag
   css        // CSS stylesheet factory
-} from "@hive/std/dom";
+} from "@the-memoize-project/std/dom";
 ```
 
 **Features:**
@@ -200,12 +226,12 @@ import {
 
 ---
 
-### 📡 [@hive/std/echo](packages/echo)
+### 📡 [@the-memoize-project/std/echo](packages/echo)
 
 Message bus for declarative component communication.
 
 ```javascript
-import { Echo } from "@hive/std/echo";
+import { Echo } from "@the-memoize-project/std/echo";
 
 class MyComponent extends Echo(HTMLElement) {
   // Now supports 'on' attribute for dataflow
@@ -229,7 +255,7 @@ class MyComponent extends Echo(HTMLElement) {
 
 ---
 
-### ⚡ [@hive/std/spark](packages/spark)
+### ⚡ [@the-memoize-project/std/spark](packages/spark)
 
 Pure transformation functions for data pipelines.
 
@@ -243,7 +269,7 @@ import {
   truthy,    // Boolean conversion
   len        // Array/string length
   // ... and many more
-} from "@hive/std/spark";
+} from "@the-memoize-project/std/spark";
 ```
 
 **Use in pipelines:**
@@ -262,12 +288,12 @@ import {
 
 ---
 
-### 🎯 [@hive/std/event](packages/event)
+### 🎯 [@the-memoize-project/std/event](packages/event)
 
 Dynamic event listener decorator with automatic lifecycle management.
 
 ```javascript
-import { event } from "@hive/std/event";
+import { event } from "@the-memoize-project/std/event";
 
 class MyComponent extends HTMLElement {
   // Listen to any event with CSS selectors
@@ -294,12 +320,12 @@ class MyComponent extends HTMLElement {
 
 ---
 
-### 🔧 [@hive/std/polyfill](packages/polyfill)
+### 🔧 [@the-memoize-project/std/polyfill](packages/polyfill)
 
 Browser API polyfills for better compatibility.
 
 ```javascript
-import "@hive/std/polyfill/setImmediate";
+import "@the-memoize-project/std/polyfill/setImmediate";
 
 setImmediate(() => {
   console.log("Runs asynchronously");
@@ -327,17 +353,17 @@ setImmediate(() => {
 #### 🛒 Shopping Cart
 
 ```html
-<hive-cart>
-  <hive-product
+<memoize-cart>
+  <memoize-product
     name="T-Shirt"
     price="29.99"
     on="add:cart/addItem">
-  </hive-product>
+  </memoize-product>
 
-  <hive-cart-summary
+  <memoize-cart-summary
     on="cart/itemAdded:summary/update">
-  </hive-cart-summary>
-</hive-cart>
+  </memoize-cart-summary>
+</memoize-cart>
 ```
 
 </td>
@@ -346,15 +372,15 @@ setImmediate(() => {
 #### 📝 Todo List
 
 ```html
-<hive-todo-app>
-  <hive-input
+<memoize-todo-app>
+  <memoize-input
     on="submit:todos/add|prop=detail.text">
-  </hive-input>
+  </memoize-input>
 
-  <hive-todo-list
+  <memoize-todo-list
     on="todos/added:list/refresh">
-  </hive-todo-list>
-</hive-todo-app>
+  </memoize-todo-list>
+</memoize-todo-app>
 ```
 
 </td>
@@ -365,13 +391,13 @@ setImmediate(() => {
 #### 🎨 Theme Switcher
 
 ```html
-<hive-theme-toggle
+<memoize-theme-toggle
   on="change:app/setTheme|prop=detail.theme">
-</hive-theme-toggle>
+</memoize-theme-toggle>
 
-<hive-app
+<memoize-app
   on="app/themeChanged:*|retouch">
-</hive-app>
+</memoize-app>
 ```
 
 </td>
@@ -380,14 +406,14 @@ setImmediate(() => {
 #### 📊 Data Dashboard
 
 ```html
-<hive-chart
+<memoize-chart
   data-source="/api/stats"
   on="data/loaded:chart/render|prop=detail.data">
-</hive-chart>
+</memoize-chart>
 
-<hive-refresh-button
+<memoize-refresh-button
   on="click:data/reload">
-</hive-refresh-button>
+</memoize-refresh-button>
 ```
 
 </td>
@@ -396,12 +422,12 @@ setImmediate(() => {
 
 ---
 
-## 🤔 Why Hive?
+## 🤔 Why Memoize Components?
 
 ### Comparison with Other Solutions
 
-| Feature | Hive | Lit | React | Vue |
-|---------|------|-----|-------|-----|
+| Feature | Memoize Components | Lit | React | Vue |
+|---------|-------------------|-----|-------|-----|
 | **Zero Dependencies** | ✅ | ✅ | ❌ | ❌ |
 | **Native Web Components** | ✅ | ✅ | ⚠️ (requires wrapper) | ⚠️ (requires wrapper) |
 | **Declarative Events** | ✅ | ❌ | ❌ | ✅ |
@@ -410,7 +436,7 @@ setImmediate(() => {
 | **Bundle Size** | ~5KB | ~8KB | ~40KB | ~35KB |
 | **Framework Agnostic** | ✅ | ✅ | ❌ | ❌ |
 
-### The Hive Philosophy
+### The Memoize Components Philosophy
 
 **Traditional Approach:**
 ```javascript
@@ -424,12 +450,12 @@ button.addEventListener("click", () => {
 });
 ```
 
-**Hive Approach:**
+**Memoize Components Approach:**
 ```html
 <!-- Declarative, loosely coupled -->
-<hive-button
+<memoize-button
   on="click:counter/increment|prop=input.value|truthy|Number">
-</hive-button>
+</memoize-button>
 ```
 
 ---
@@ -480,7 +506,7 @@ biome check --write .
 ### Project Structure
 
 ```
-hive/std/
+@the-memoize-project/std/
 ├── packages/
 │   ├── directive/     # Lifecycle decorators
 │   ├── dom/          # Rendering utilities
@@ -496,11 +522,11 @@ hive/std/
 
 ## 🤝 Contributing
 
-We welcome contributions! Whether you're fixing bugs, improving docs, or proposing new features, your help makes Hive better.
+We welcome contributions! Whether you're fixing bugs, improving docs, or proposing new features, your help makes Memoize Components better.
 
 **Ways to contribute:**
-- 🐛 [Report bugs](https://github.com/hivejs/std/issues/new?template=bug_report.md)
-- 💡 [Suggest features](https://github.com/hivejs/std/issues/new?template=feature_request.md)
+- 🐛 [Report bugs](https://github.com/the-memoize-project/std/issues/new?template=bug_report.md)
+- 💡 [Suggest features](https://github.com/the-memoize-project/std/issues/new?template=feature_request.md)
 - 📖 [Improve documentation](CONTRIBUTING.md#documentation)
 - 🔧 [Submit pull requests](CONTRIBUTING.md#pull-requests)
 
@@ -510,7 +536,7 @@ Please read our [Contributing Guide](CONTRIBUTING.md) and [Code of Conduct](CODE
 
 ## 📄 License
 
-MIT © Hive Contributors
+MIT © The Memoize Project Contributors
 
 See [LICENSE](LICENSE) for details.
 
@@ -518,11 +544,13 @@ See [LICENSE](LICENSE) for details.
 
 ## 🙏 Acknowledgments
 
-Hive is inspired by the principles of:
+Memoize Components is inspired by the principles of:
 - **Web Components** - The web platform's native component model
 - **Reactive Programming** - Declarative data flow and automatic updates
 - **Unix Philosophy** - Small, focused, composable tools
-- **Nature** - Emergent complexity from simple autonomous units
+- **Spaced Repetition** - Evidence-based learning and memory optimization
+
+Special thanks to the Hive framework for the original architectural inspiration.
 
 ---
 
@@ -538,8 +566,8 @@ Hive is inspired by the principles of:
 
 <div align="center">
 
-**Built with ❤️ by the Hive community**
+**Built with ❤️ for The Memoize Project**
 
-[⭐ Star us on GitHub](https://github.com/hivejs/std) · [🐦 Follow updates](https://twitter.com/hivejs) · [💬 Join discussions](https://github.com/hivejs/std/discussions)
+[⭐ Star us on GitHub](https://github.com/the-memoize-project/std) · [💬 Join discussions](https://github.com/the-memoize-project/std/discussions) · [🧠 Learn more about The Memoize Project](https://github.com/the-memoize-project)
 
 </div>
