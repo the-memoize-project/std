@@ -104,7 +104,7 @@ describe("Event Sparks", () => {
 
       // Mock the FormData constructor
       const originalFormData = global.FormData;
-      global.FormData = vi.fn(() => mockFormData);
+      global.FormData = () => mockFormData;
 
       const event = {
         target: {},
@@ -126,7 +126,7 @@ describe("Event Sparks", () => {
       const mockFormData = new Map();
 
       const originalFormData = global.FormData;
-      global.FormData = vi.fn(() => mockFormData);
+      global.FormData = () => mockFormData;
 
       const event = {
         target: {},

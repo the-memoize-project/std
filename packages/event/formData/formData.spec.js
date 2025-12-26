@@ -18,7 +18,7 @@ describe("formData", () => {
       ["email", "john@example.com"],
     ]);
 
-    global.FormData = vi.fn(() => mockFormData);
+    global.FormData = () => mockFormData;
 
     const event = {
       target: {},
@@ -35,7 +35,7 @@ describe("formData", () => {
 
   it("should handle empty forms", () => {
     const mockFormData = new Map();
-    global.FormData = vi.fn(() => mockFormData);
+    global.FormData = () => mockFormData;
 
     const event = {
       target: {},
@@ -70,7 +70,7 @@ describe("formData", () => {
       ["age", "30"],
     ]);
 
-    global.FormData = vi.fn(() => mockFormData);
+    global.FormData = () => mockFormData;
 
     const event = {
       target: {},
@@ -96,7 +96,7 @@ describe("formData", () => {
       ["comments", "This is a comment"],
     ]);
 
-    global.FormData = vi.fn(() => mockFormData);
+    global.FormData = () => mockFormData;
 
     const event = {
       target: {},
