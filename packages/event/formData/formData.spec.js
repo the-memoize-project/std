@@ -18,7 +18,12 @@ describe("formData", () => {
       ["email", "john@example.com"],
     ]);
 
-    global.FormData = () => mockFormData;
+    global.FormData = class {
+      // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+      constructor() {
+        return mockFormData;
+      }
+    };
 
     const event = {
       target: {},
@@ -35,7 +40,12 @@ describe("formData", () => {
 
   it("should handle empty forms", () => {
     const mockFormData = new Map();
-    global.FormData = () => mockFormData;
+    global.FormData = class {
+      // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+      constructor() {
+        return mockFormData;
+      }
+    };
 
     const event = {
       target: {},
@@ -70,7 +80,12 @@ describe("formData", () => {
       ["age", "30"],
     ]);
 
-    global.FormData = () => mockFormData;
+    global.FormData = class {
+      // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+      constructor() {
+        return mockFormData;
+      }
+    };
 
     const event = {
       target: {},
@@ -96,7 +111,12 @@ describe("formData", () => {
       ["comments", "This is a comment"],
     ]);
 
-    global.FormData = () => mockFormData;
+    global.FormData = class {
+      // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+      constructor() {
+        return mockFormData;
+      }
+    };
 
     const event = {
       target: {},

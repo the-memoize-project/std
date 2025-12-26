@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import detail from "./detail/detail";
 import formData from "./formData/formData";
 import prevent from "./prevent/prevent";
@@ -104,7 +104,12 @@ describe("Event Sparks", () => {
 
       // Mock the FormData constructor
       const originalFormData = global.FormData;
-      global.FormData = () => mockFormData;
+      global.FormData = class {
+        // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+        constructor() {
+          return mockFormData;
+        }
+      };
 
       const event = {
         target: {},
@@ -126,7 +131,12 @@ describe("Event Sparks", () => {
       const mockFormData = new Map();
 
       const originalFormData = global.FormData;
-      global.FormData = () => mockFormData;
+      global.FormData = class {
+        // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+        constructor() {
+          return mockFormData;
+        }
+      };
 
       const event = {
         target: {},
