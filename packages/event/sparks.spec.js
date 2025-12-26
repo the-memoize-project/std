@@ -152,9 +152,18 @@ describe("Event Sparks", () => {
 
     it("should pass both target and submitter to FormData", () => {
       const mockFormData = new Map();
-      const formDataSpy = vi.fn(() => mockFormData);
+      const originalFormData = global.FormData;
+      let capturedTarget;
+      let capturedSubmitter;
 
-      global.FormData = formDataSpy;
+      global.FormData = class {
+        // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+        constructor(target, submitter) {
+          capturedTarget = target;
+          capturedSubmitter = submitter;
+          return mockFormData;
+        }
+      };
 
       const target = {};
       const submitter = {};
@@ -162,9 +171,10 @@ describe("Event Sparks", () => {
 
       formData(event);
 
-      expect(formDataSpy).toHaveBeenCalledWith(target, submitter);
+      expect(capturedTarget).toBe(target);
+      expect(capturedSubmitter).toBe(submitter);
 
-      global.FormData = FormData;
+      global.FormData = originalFormData;
     });
   });
 

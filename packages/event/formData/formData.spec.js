@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import formData from "./formData";
 
 describe("formData", () => {
@@ -59,9 +59,17 @@ describe("formData", () => {
 
   it("should pass both target and submitter to FormData", () => {
     const mockFormData = new Map();
-    const formDataSpy = vi.fn(() => mockFormData);
+    let capturedTarget;
+    let capturedSubmitter;
 
-    global.FormData = formDataSpy;
+    global.FormData = class {
+      // biome-ignore lint/correctness/noConstructorReturn: Mock needs to return Map for testing
+      constructor(target, submitter) {
+        capturedTarget = target;
+        capturedSubmitter = submitter;
+        return mockFormData;
+      }
+    };
 
     const target = {};
     const submitter = {};
@@ -69,7 +77,8 @@ describe("formData", () => {
 
     formData(event);
 
-    expect(formDataSpy).toHaveBeenCalledWith(target, submitter);
+    expect(capturedTarget).toBe(target);
+    expect(capturedSubmitter).toBe(submitter);
   });
 
   it("should handle multiple form fields", () => {
