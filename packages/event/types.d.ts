@@ -47,4 +47,44 @@ declare module "@hive/std/event" {
   };
 
   export default event;
+
+  /**
+   * Stops event propagation by calling event.stopPropagation().
+   *
+   * @param event - The event to stop propagation for.
+   * @returns The same event for chaining.
+   */
+  export function stop(event: Event): Event;
+
+  /**
+   * Prevents the default event action by calling event.preventDefault().
+   *
+   * @param event - The event to prevent default action for.
+   * @returns The same event for chaining.
+   */
+  export function prevent(event: Event): Event;
+
+  /**
+   * Extracts the value from an event target.
+   *
+   * @param event - The event containing the target with a value property.
+   * @returns The value from event.target.value.
+   */
+  export function value(event: Event): any;
+
+  /**
+   * Extracts the detail payload from a custom event.
+   *
+   * @param event - The custom event containing detail data.
+   * @returns The detail payload from event.detail.
+   */
+  export function detail(event: CustomEvent): any;
+
+  /**
+   * Converts form data to a plain object.
+   *
+   * @param event - The form submission event.
+   * @returns An object representation of the form data.
+   */
+  export function formData(event: Event): Record<string, FormDataEntryValue>;
 }

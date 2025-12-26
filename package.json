@@ -1,6 +1,6 @@
 {
   "name": "@the-memoize-project/std",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Memoize Components: Build declarative Web Components for The Memoize Project. A lightweight, zero-dependency framework based on native Web APIs with reactive rendering and message-driven architecture. Part of a flashcard application using FSRS spaced repetition.",
   "keywords": [
     "web-components",

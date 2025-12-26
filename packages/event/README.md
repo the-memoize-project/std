@@ -258,6 +258,127 @@ validateInput(isValid) { ... }
 
 ---
 
+## Built-in Event Sparks
+
+The event package provides built-in spark functions for common event handling patterns:
+
+### stop
+
+Stops event propagation by calling `event.stopPropagation()`.
+
+```javascript
+import event, { stop } from "@hive/std/event";
+
+class MyElement extends HTMLElement {
+  @event.click("button", stop)
+  handleClick(event) {
+    // Event won't bubble to parent elements
+    console.log("Button clicked");
+  }
+}
+```
+
+### prevent
+
+Prevents the default action by calling `event.preventDefault()`.
+
+```javascript
+import event, { prevent } from "@hive/std/event";
+
+class MyForm extends HTMLElement {
+  @event.submit("form", prevent)
+  handleSubmit(event) {
+    // Form won't submit normally
+    console.log("Custom form handling");
+  }
+}
+```
+
+### value
+
+Extracts `event.target.value` from the event.
+
+```javascript
+import event, { value } from "@hive/std/event";
+
+class MyInput extends HTMLElement {
+  @event.input("input", value)
+  handleInput(inputValue) {
+    // Receives the value directly, not the event
+    console.log("Input value:", inputValue);
+  }
+}
+```
+
+### detail
+
+Extracts `event.detail` from CustomEvents.
+
+```javascript
+import event, { detail } from "@hive/std/event";
+
+class MyElement extends HTMLElement {
+  @event("user-selected", detail)
+  handleUserSelected(userData) {
+    // Receives the detail payload directly
+    console.log("User data:", userData);
+  }
+}
+```
+
+### formData
+
+Converts FormData to a plain object.
+
+```javascript
+import event, { formData, prevent } from "@hive/std/event";
+
+class MyForm extends HTMLElement {
+  @event.submit("form", prevent, formData)
+  handleSubmit(data) {
+    // Receives form data as a plain object
+    console.log("Form data:", data);
+    // { username: "john", email: "john@example.com" }
+  }
+}
+```
+
+### Chaining Event Sparks
+
+Event sparks can be chained together for powerful combinations:
+
+```javascript
+import event, { prevent, stop, formData } from "@hive/std/event";
+
+class MyForm extends HTMLElement {
+  @event.submit("form", prevent, stop, formData)
+  handleSubmit(data) {
+    // 1. Prevents default form submission
+    // 2. Stops event propagation
+    // 3. Extracts form data as an object
+    console.log("Clean form data:", data);
+  }
+}
+```
+
+**Common combinations:**
+
+```javascript
+// Form submission with data extraction
+@event.submit("form", prevent, formData)
+
+// Input with value extraction
+@event.input("input", value)
+
+// Custom event with detail extraction
+@event("custom-event", detail)
+
+// Click handler that doesn't bubble
+@event.click("button", stop, prevent)
+```
+
+---
+
 ## API Reference
 
 ### @event.eventName(selector, ...filters)

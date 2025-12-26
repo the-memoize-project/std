@@ -1,51 +1,15 @@
 {
   "compilerOptions": {
-    // Type Checking
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-
-    // Modules
+    "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-
-    // Emit
-    "noEmit": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-
-    // JavaScript Support
-    "allowJs": true,
-    "checkJs": true,
-    "maxNodeModuleJsDepth": 1,
-
-    // Interop
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-
-    // Language and Environment
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "jsx": "react",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": false,
-
-    // Projects
-    "composite": false,
-    "incremental": true,
-
-    // Completeness
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
-
-    // Paths
     "baseUrl": ".",
     "paths": {
       "@directive": ["./packages/directive"],
@@ -62,15 +26,6 @@
       "@spark/*": ["./packages/spark/*"]
     }
   },
-  "include": [
-    "packages/**/*",
-    "types.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "**/*.spec.js",
-    "**/*.spec.ts"
-  ]
+  "include": ["packages/**/*", "types.d.ts"],
+  "exclude": ["node_modules", "dist", "coverage"]
 }
